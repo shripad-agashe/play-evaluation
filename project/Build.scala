@@ -9,7 +9,8 @@ object ApplicationBuild extends Build {
 
   val appDependencies = Seq(
     // Add your project dependencies here,
-    "org.scalatest" % "scalatest_2.10" % "2.0.M5b" % "test"
+    "org.scalatest" % "scalatest_2.10" % "2.0.M5b" % "test",
+    "org.seleniumhq.selenium" % "selenium-java" % "2.32.0" % "test"
   )
 
 
