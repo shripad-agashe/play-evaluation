@@ -12,9 +12,33 @@ class ApplicationTest extends Specification{
       running(FakeApplication() ) {
         val resp = route(FakeRequest(GET, "/search")).get
         status(resp) must equalTo(OK)
-        contentAsString(resp) contains("This is a search form")
+        contentAsString(resp) contains("Search")
       }
     }
   }
+
+
+  "ApplicationTest" should{
+
+    "Get Text same as passed via textbox after rendering the result page" in{
+
+      running(FakeApplication()){
+
+
+        val word = route(FakeRequest(GET,routes.Application.showResults("value").url)).get
+
+        contentAsString(word) contains("value")
+
+      }
+
+
+    }
+
+
+  }
+
+
+
+
 
 }
