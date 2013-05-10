@@ -1,0 +1,16 @@
+@(message: String, searchForm:Form[Term])
+
+@import helper._
+
+@main("Search Words !!!") {
+
+<h2>@message</h2>
+
+@form(routes.Application.result) {
+    @inputText(searchForm("term"),'_label -> "Term" )
+    <input type="submit" value="search">
+}
+
+}
+
+
