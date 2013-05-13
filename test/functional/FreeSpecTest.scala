@@ -4,7 +4,9 @@ import org.scalatest.selenium.WebBrowser
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.scalatest.FreeSpec
+import org.junit.Ignore
 
+@Ignore
 class FreeSpecTest extends FreeSpec with WebBrowser{
 
   implicit val driver : WebDriver = new FirefoxDriver()

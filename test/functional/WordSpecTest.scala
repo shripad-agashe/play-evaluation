@@ -4,7 +4,9 @@ import org.scalatest.WordSpec
 import org.scalatest.selenium.WebBrowser
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
+import org.junit.Ignore
 
+@Ignore
 class WordSpecTest extends WordSpec with WebBrowser{
 
   implicit val driver: WebDriver = new FirefoxDriver()
