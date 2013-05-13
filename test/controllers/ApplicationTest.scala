@@ -44,7 +44,7 @@ class ApplicationTest extends Specification {
 
         val response = route(FakeRequest("GET", redirectLocation(result).get)).get
 
-        contentAsString(response) contains ("A machine that can be programmed to manipulate\n        symbols")
+        contentAsString(response) contains ("A journal of the {IEEE Computer Society}")
 
 
       }
