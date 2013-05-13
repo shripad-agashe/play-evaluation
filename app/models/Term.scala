@@ -1,3 +1,3 @@
 package models
 
-case class Term(term: String)  {}
+case class Term(term: String) {}

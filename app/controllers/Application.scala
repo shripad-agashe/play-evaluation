@@ -11,54 +11,59 @@ import play.libs.F._
 import play.api.libs.ws
 import scala.concurrent.{ExecutionContext, Future}
 import ExecutionContext.Implicits.global
-
+import scala.xml.{NodeSeq, XML}
 
 
 object Application extends Controller {
-  
+
   def index = Action {
     Ok(views.html.index("Your new application is ready."))
   }
 
 
-  val searchForm : Form[Term] = Form(
+  val searchForm: Form[Term] = Form(
     mapping(
       "term" -> text
     )(Term.apply)(Term.unapply)
   )
 
   def searchPage = Action {
-    Ok(views.html.search("searchPage",searchForm))
+    Ok(views.html.search("searchPage", searchForm))
 
   }
 
-  def search = Action {  implicit request =>
-    searchForm.bindFromRequest.fold(
-      errors => {
-         println(errors.errors.take(1))
-        BadRequest("ab")
-      },
-      term =>  { Redirect(routes.Application.showResults(term.term).url) }
-    )
+  def search = Action {
+    implicit request =>
+      searchForm.bindFromRequest.fold(
+        errors => {
+          println(errors.errors.take(1))
+          BadRequest("ab")
+        },
+        term => {
+          Redirect(routes.Application.showResults(term.term).url)
+        }
+      )
   }
 
-  def showResults(displayText:String) = Action {
+  def showResults(displayText: String) = Action {
 
-    val homePage =  WS.url("http://services.aonaware.com/DictService/DictService.asmx/Define?word=" + displayText).get()
+    val homePage = WS.url("http://services.aonaware.com/DictService/DictService.asmx/Define?word=" + displayText).get()
 
 
-    val resultFuture: Future[Result] = homePage.map { resp =>
-    // Create a Result that uses the http status, body, and content-type
-    // from the example.com Response
-      Status(resp.status)(resp.body).as(resp.ahcResponse.getContentType)
+    val resultFuture: Future[Result] = homePage.map {
+      resp =>
+        val xml = scala.xml.XML.loadString(resp.body).toList
+        val description = (xml \ "Definitions" \ "Definition" \ "WordDefinition").toList
+
+
+      //  Ok(description.head.text)
+        Ok(views.html.result(description.head.text))
+
     }
 
-
     Async(resultFuture)
+    //Ok(views.html.result(displayText))
 
-//    Ok(views.html.result(displayText))
-
-      /*(response.json \ "title").as[String]*/
   }
 
 }

@@ -4,17 +4,15 @@ import org.scalatest.WordSpec
 import org.scalatest.selenium.WebBrowser
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.firefox.FirefoxDriver
-import org.junit.Ignore
 
-@Ignore
-class WordSpecTest extends WordSpec with WebBrowser{
+class WordSpecTest extends WordSpec with WebBrowser {
 
   implicit val driver: WebDriver = new FirefoxDriver()
 
   "User enters a url" when {
     "Open application" should {
-      "Text Your application is ready" in{
-        go to("http://localhost:9000")
+      "Text Your application is ready" in {
+        go to ("http://localhost:9000")
         driver.close()
       }
     }

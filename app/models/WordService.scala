@@ -8,6 +8,6 @@ package models
  */
 object WordService {
 
-  def suggestions(word:String) = "Hello World !!!"
+  def suggestions(word: String) = "Hello World !!!"
 
 }
