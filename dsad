@@ -1,0 +1,59 @@
+commit 91cfec3c99618796461b97fad9b5eeca01d46336
+Author: Jaydip <jaydip.rananavare@crest-premedia.in>
+Date:   Mon May 13 11:55:20 2013 +0530
+
+    added test and code to call web service
+
+commit 851ea0907a8f2e97ce0d8e1f4a4dc3bcf7549be1
+Author: Jaydip <jaydip.rananavare@crest-premedia.in>
+Date:   Fri May 10 12:07:11 2013 +0530
+
+    A test case added for parameter validation
+
+commit 7e8b98129a81b470a59373589091d7eabcf7de25
+Author: Jaydip <jaydip.rananavare@crest-premedia.in>
+Date:   Fri May 10 11:37:46 2013 +0530
+
+    Text Box seach Integrated
+
+commit c466f29bbac9684d754f7cbf256c8a372742ac1d
+Author: jetinder20 <casper@localhost.localdomain>
+Date:   Fri May 10 16:33:32 2013 +0530
+
+    Jet/Indu/Srini | Spiked different types of style traits for scalatest
+
+commit 3bb178bbe338357b61eced79fca0b0852c361c3b
+Author: casper <casper@localhost.localdomain>
+Date:   Fri May 10 11:33:51 2013 +0530
+
+    Jet/Indu | Adding test using FlatSpec
+
+commit 9a018018c73867502215569377ae1520522af910
+Author: IndushreeR <indushreer@thoughtworks.com>
+Date:   Fri May 10 09:51:29 2013 +0530
+
+    Indu | Adding Scalatest dependency to project
+
+commit 9e35622a143b0311f3b6016d0faaa4e4f032e817
+Author: IndushreeR <indushreer@thoughtworks.com>
+Date:   Wed May 8 17:54:29 2013 +0530
+
+    Indu | Fixing ApplicationSpec - render the index page test
+
+commit 1d68fdcfab757e96fe57fcc5ad71d8a7d52d6b63
+Author: Jaydip <jaydip.rananavare@crest-premedia.in>
+Date:   Wed May 8 01:40:25 2013 -0400
+
+    Shripad/Jaydip - Added test for new controller and added new controller
+
+commit 95e27965ca32dc0ce881516a776f241eab5725c0
+Author: Shripad Agashe <shripad.agashe@gmail.com>
+Date:   Mon May 6 16:17:32 2013 +0530
+
+    Shripad - Created sbt launcher and modified index.html
+
+commit b3546b3c218c55995fa83c452fc0e88a0842d255
+Author: Shripad Agashe <shripad.agashe@gmail.com>
+Date:   Mon May 6 15:23:08 2013 +0530
+
+    Initial commit
