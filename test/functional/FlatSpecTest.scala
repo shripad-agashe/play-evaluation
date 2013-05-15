@@ -10,7 +10,7 @@ class FlatSpecTest extends FlatSpec with ShouldMatchers with WebBrowser {
   implicit val driver: WebDriver = new FirefoxDriver()
 
   "When user enters a url, the application" should "have text" in {
-    go to ("http://localhost:9000")
+    go to ("http://127.0.0.1:9000")
     driver.close()
   }
 

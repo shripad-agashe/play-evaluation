@@ -13,14 +13,14 @@ class FunSpecTest extends FunSpec with WebBrowser with GivenWhenThen{
   describe("when user types in the url") {
 
     it("Should open the application slow", Tag("Fast")) {
-      go to ("http://localhost:9000")
+      go to ("http://127.0.0.1:9000")
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")
       driver.close()
     }
 
     it("Should open the application fast", Tag("Slow")) {
-      go to ("http://localhost:9000")
+      go to ("http://127.0.0.1:9000")
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")
       driver.close()

@@ -1,16 +1,19 @@
 @(message: String, searchForm:Form[Term])
+@import org.jcp.xml.dsig.internal.dom.DOMUtils
+
 
 @import helper._
 
 @main("Search Words !!!") {
 
+<script src="@routes.Assets.at("javascripts/validation.js")" type="text/javascript"></script>
+
 <h2>@message</h2>
 
-@form(routes.Application.search) {
-@inputText(searchForm("term"),'_label -> "Term" )
-
-<input type="submit" value="search">
-}
+    <form name="myForm" action="@routes.Application.search" onsubmit="return checkForTerm(this.term.value);" method="post">
+        Term: <input type="text" name="term">
+        <input type="submit" name ="submit" value="Submit">
+    </form>
 
 }
 

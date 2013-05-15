@@ -15,7 +15,7 @@ class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
 
     scenario("Verify application is up slow", Tag("Slow")){
 
-      go to ("http://localhost:9000")
+      go to ("http://127.0.0.1:9000")
 
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")
@@ -24,7 +24,7 @@ class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
     }
 
     scenario("Verify application is up fast", Tag("Fast")){
-      go to ("http://localhost:9000")
+      go to ("http://127.0.0.1:9000")
 
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")

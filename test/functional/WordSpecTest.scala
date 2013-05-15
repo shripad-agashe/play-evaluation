@@ -12,7 +12,7 @@ class WordSpecTest extends WordSpec with WebBrowser{
   "User enters a url" when {
     "Open application" should {
       "Text Your application is ready" in{
-        go to("http://localhost:9000")
+        go to("http://127.0.0.1:9000")
         driver.close()
       }
     }
