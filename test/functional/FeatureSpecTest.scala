@@ -21,7 +21,6 @@ class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")
 
-      driver.close()
     }
 
     scenario("Verify application is up fast", Tag("Fast")){
@@ -30,28 +29,34 @@ class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
       val text = driver.findElement(By.xpath("//h1")).getText
       Assert.assertEquals(text, "Your new application is ready.")
 
-      driver.close()
     }
   }
 
   feature("Check user search") {
 
-    ignore("When user search in search") {
+    scenario("Verify search page") {
 
       go to ("http://localhost:9000/search")
-
-      driver.findElement(By.xpath("//*[@id='term']")).sendKeys("scala")
-      driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS)
-
-      driver.findElement(By.xpath("//*[@type='submit']")).click()
-      driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS)
-
-      val text = driver.findElement(By.xpath("//h2")).getText
-      Assert.assertTrue(text.contains("scala"))
-
-      driver.close()
+      val expected = driver.findElement(By.xpath("//h2")).getText
+      Assert.assertEquals(expected, "searchPage")
     }
 
+    scenario("Verify search results page") {
+
+      Given("User on search page")
+      go to ("http://localhost:9000/search")
+
+      When("User search for any term")
+      driver.findElement(By.name("term")).sendKeys("scala")
+      driver.findElement(By.xpath("//*[@type='submit']")).click()
+
+      Then("User should able to see search results page")
+      val text = driver.findElement(By.xpath("//h2")).getText
+      Assert.assertEquals(text, "Definition is :")
+
+      driver.close()
+
+    }
   }
 
 }
