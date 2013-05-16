@@ -10,4 +10,6 @@ checkForTerm=(term) -> if term is ''
   false
 else
   true
+### Another function for testing purpose ###
+myFunc = -> true
 
