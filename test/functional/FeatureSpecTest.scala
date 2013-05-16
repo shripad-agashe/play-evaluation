@@ -5,6 +5,7 @@ import org.scalatest.selenium.WebBrowser
 import org.openqa.selenium.{By, WebDriver}
 import org.openqa.selenium.firefox.FirefoxDriver
 import org.junit.Assert
+import java.util.concurrent.TimeUnit
 
 
 class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
@@ -32,4 +33,25 @@ class FeatureSpecTest extends FeatureSpec with WebBrowser with GivenWhenThen{
       driver.close()
     }
   }
+
+  feature("Check user search") {
+
+    ignore("When user search in search") {
+
+      go to ("http://localhost:9000/search")
+
+      driver.findElement(By.xpath("//*[@id='term']")).sendKeys("scala")
+      driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS)
+
+      driver.findElement(By.xpath("//*[@type='submit']")).click()
+      driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS)
+
+      val text = driver.findElement(By.xpath("//h2")).getText
+      Assert.assertTrue(text.contains("scala"))
+
+      driver.close()
+    }
+
+  }
+
 }

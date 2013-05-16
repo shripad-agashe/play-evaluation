@@ -26,4 +26,18 @@ class FunSpecTest extends FunSpec with WebBrowser with GivenWhenThen{
       driver.close()
     }
   }
+
+  describe("When user search in search") {
+
+    ignore("Should open the search result page") {
+      go to ("http://localhost:9000")
+      driver.findElement(By.id("term")).sendKeys("scala")
+      driver.findElement(By.xpath("//*[@type='submit']")).click();
+      val text = driver.findElement(By.xpath("//h1")).getText
+      Assert.assertTrue(text.contains("scala"))
+      driver.close()
+    }
+
+  }
+
 }
