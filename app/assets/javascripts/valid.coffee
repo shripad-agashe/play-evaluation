@@ -1,0 +1,2 @@
+simpleFunction = -> "simple function"
+

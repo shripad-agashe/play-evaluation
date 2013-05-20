@@ -12,4 +12,6 @@ else
   true
 ### Another function for testing purpose ###
 myFunc = -> true
+###another function###
+anotherFunc = -> false
 
