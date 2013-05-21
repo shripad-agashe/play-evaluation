@@ -1,0 +1,2 @@
+./compile-coffee
+./sbt test

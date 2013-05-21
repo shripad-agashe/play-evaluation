@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+
+js_output_dir = "target/scala-2.10/resource_managed/test/public/specs"
+`mkdir -p #{js_output_dir}`
+SRC = Dir.glob("test/assets/**/*.coffee")
+command = "coffee -c -o #{js_output_dir} -b #{SRC.join(" ")}"
+puts command
+`#{command}`
+
