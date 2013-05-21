@@ -1,6 +1,6 @@
 ###value =  "this is validation file"
 alert value###
-cofeeFunc = ->
+this.cofeeFunc = ->
   coffeeAns =  confirm "Ready for coffee?"
   ans = if coffeeAns then "Wooow U R Ready for Coffee :) " else "Ohh Not ready for Coffee :( "
   alert ans
@@ -11,7 +11,7 @@ this.checkForTerm=(term) -> if term is ''
 else
   true
 ### Another function for testing purpose ###
-myFunc = -> true
+this.myFunc = -> true
 ###another function###
-anotherFunc = -> false
+this.anotherFunc = -> false
 

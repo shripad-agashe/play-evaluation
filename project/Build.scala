@@ -15,15 +15,26 @@ object ApplicationBuild extends Build {
   )
 
 
+
+
+
+
+
   val main = play.Project(appName, appVersion, appDependencies)
     .settings(jasmineSettings : _*)
     .settings(
-      coffeescriptOptions := Seq("bare"),
-  //  appJsDir <+= target / "scala-2.10/resource_managed/main/public/javascripts",
+
+
+
+
       appJsDir <+= resourceManaged / "main/public/javascripts",
+
       appJsLibDir <+= baseDirectory / "public/javascripts",
-      jasmineTestDir <+= baseDirectory / "test/assets",
+
+
+      jasmineTestDir <+=  resourceManaged / "test/public",
       jasmineConfFile <+= baseDirectory / "test/assets/test.dependencies.js",
+
       // link jasmine to the standard 'sbt test' action. Now when running 'test' jasmine tests will be run, and if they pass
       // then other Play tests will be executed.
       (test in Test) <<= (test in Test) dependsOn (jasmine)
