@@ -12,12 +12,14 @@ import play.api.libs.ws
 import scala.concurrent.{ExecutionContext, Future}
 import ExecutionContext.Implicits.global
 import scala.xml.{NodeSeq, XML}
+import controllers.tools.Scalate
 
 
 object Application extends Controller {
 
   def index = Action {
-    Ok(views.html.index("Your new application is ready."))
+    //Ok(views.html.index("Your new application is ready."))
+    Ok(Scalate("index.jade").render('message -> "Welcome To Play-Webapp"))
   }
 
 
@@ -29,7 +31,6 @@ object Application extends Controller {
 
   def searchPage = Action {
     Ok(views.html.search("searchPage", searchForm))
-
   }
 
   def search = Action {
