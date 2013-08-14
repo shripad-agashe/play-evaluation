@@ -1,7 +1,8 @@
 package controllers
 
-import play.api._
 import play.api.mvc._
+import play.api.libs.json.Json
+import com.springer.materials.abstractpage.AbstractPageService
 import play.api.data._
 import play.api.data.Forms._
 import models.{Term, WordService}
@@ -20,8 +21,14 @@ object Application extends Controller {
   def index = Action {
     //Ok(views.html.index("Your new application is ready."))
     Ok(Scalate("index.jade").render('message -> "Welcome To Play-Webapp"))
+    Ok(views.html.index("Welcome To Sm-Api"))
   }
 
+  def getWidget = Action {
+    Ok(views.html.index("Welcome To Sm-Api"))
+    //def abstractPageService = new AbstractPageService
+    //Ok(abstractPageService.getAbstractPageData("1"))
+  }
 
   val searchForm: Form[Term] = Form(
     mapping(

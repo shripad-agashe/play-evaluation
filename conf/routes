@@ -4,6 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index
+GET     /json                       controllers.Application.getWidget
 GET     /search                     controllers.Application.searchPage
 POST    /search/result              controllers.Application.search
 GET     /search/:word/showResults   controllers.Application.showResults(word:String)
