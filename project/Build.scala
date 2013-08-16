@@ -53,17 +53,12 @@ object ApplicationBuild extends Build {
     .settings(
     appJsDir <+= resourceManaged / "main/public/javascripts",
     appJsLibDir <+= baseDirectory / "public/javascripts",
-    jasmineTestDir <+= baseDirectory / "test/assets/specs",
+    jasmineTestDir <+= baseDirectory / "test/assets",
     jasmineConfFile <+= baseDirectory / "test/assets/test.dependencies.js",
-
     //resourceGenerators in test <+= CoffeescriptCompiler  ,
     // link jasmine to the standard 'sbt test' action. Now when running 'test' jasmine tests will be run, and if they pass
     // then other Play tests will be executed.
     (test in Test) <<= (test in Test) dependsOn (jasmine),
     (jasmine) <<= (jasmine) dependsOn(Tasks.hello)
-
   ).settings( Tasks.helloTask)
-  .settings(
-    coffeescriptEntryPoints <<= baseDirectory(_ / "app" / "assets" / "javascripts" ** "*.coffee")
-  )
-}
+ }
